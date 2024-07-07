@@ -3,12 +3,14 @@
         "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
         "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
 
+<!-- provides the functionality to check a set of files -->
 <module name="Checker">
 
     <!--Расширение файла должно быть java, properties, xml-->
     <property name="fileExtensions" value="java, properties, xml"/>
 
     <!-- Checks for Size Violations.                    -->
+    <!-- File length. Default: 2000 lines               -->
     <!-- See http://checkstyle.sf.net/config_sizes.html -->
     <module name="FileLength"/>
 
@@ -19,6 +21,8 @@
     <!--   <property name="fileExtensions" value="java"/> -->
     <!-- </module> -->
 
+    <!-- Responsible for walking an abstract syntax tree and notifying interested -->
+    <!-- checks at each node -->
     <module name="TreeWalker">
 
         <module name="EmptyLineSeparator"> <!-- Java Style Guide: Source file structure -->
@@ -50,6 +54,8 @@
             <property name="tokens" value="METHOD_DEF"/>
             <property name="max" value="100"/>
         </module>
+
+        <!-- Specify the maximum number of parameters allowed. Default: 7 -->
         <module name="ParameterNumber"/>
 
         <!-- Checks for whitespace                               -->
