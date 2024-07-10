@@ -20,7 +20,7 @@
     <!-- Line Length. Default: 80 lines                 -->
     <module name="LineLength">
         <property name="fileExtensions" value="java"/>
-    <!--    <property name="max" value="100"/>          -->
+        <property name="max" value="100"/>
     </module>
 
     <!-- Checks for Headers                                -->
