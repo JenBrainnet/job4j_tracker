@@ -1,7 +1,6 @@
 package ru.job4j.oop;
 
 public class WoodDoll {
-
     private WoodDoll child;
     private String name;
 
