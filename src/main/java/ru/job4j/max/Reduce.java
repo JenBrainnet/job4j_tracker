@@ -4,13 +4,13 @@ public class Reduce {
 
     private int[] array;
 
-    public void to(int[] a) {
-        array = a;
+    public void to(int[] array) {
+        this.array = array;
     }
 
     public void print() {
-        for (int index = 0; index < array.length; index++) {
-            System.out.println(array[index]);
+        for (int number : this.array) {
+            System.out.println(number);
         }
     }
 
