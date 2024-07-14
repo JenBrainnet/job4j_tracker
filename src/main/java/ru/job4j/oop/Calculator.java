@@ -24,6 +24,25 @@ public class Calculator {
         return sum(y) + minus(y) + multiply(y) + divide(y);
     }
 
+    public static class Multiple {
+
+        private final int result;
+
+        public Multiple(int number) {
+            result = number;
+        }
+
+        public int getResult() {
+            return result;
+        }
+
+    }
+
+    public static Multiple getMultiple(int value) {
+        int result = value * value;
+        return new Multiple(result);
+    }
+
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
         int y = 10;
@@ -34,6 +53,11 @@ public class Calculator {
         calculator.multiply(y);
         calculator.divide(y);
         calculator.sumAllOperation(y);
+
+        Calculator.Multiple multiple1 = Calculator.getMultiple(3);
+        Multiple multiple2 = Calculator.getMultiple(2);
+        System.out.println("multiple1 = " + multiple1.getResult());
+        System.out.println("multiple2 = " + multiple2.getResult());
     }
 
 }
