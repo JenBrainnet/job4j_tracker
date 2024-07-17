@@ -64,4 +64,34 @@ public class TrackerTest {
         assertThat(result.length).isEqualTo(expected);
     }
 
+    @Test
+    void whenReplaceItemIsSuccessful() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Bug");
+        tracker.add(item);
+        int id = item.getId();
+        Item updateItem = new Item("Bug with description");
+        tracker.replace(id, updateItem);
+        assertThat(tracker.findById(id).getName()).isEqualTo("Bug with description");
+    }
+
+    @Test
+    void whenReplaceItemIsNotSuccessful() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Bug");
+        tracker.add(item);
+        Item updateItem = new Item("Bug with description");
+        boolean result = tracker.replace(1000, updateItem);
+        assertThat(tracker.findById(item.getId()).getName()).isEqualTo("Bug");
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    void whenReplaceItemInEmptyArrayThenFalse() {
+        Tracker tracker = new Tracker();
+        Item updateItem = new Item("Bug");
+        boolean result = tracker.replace(0, updateItem);
+        assertThat(result).isFalse();
+    }
+
 }
