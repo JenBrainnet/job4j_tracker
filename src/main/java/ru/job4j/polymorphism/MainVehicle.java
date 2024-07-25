@@ -1,6 +1,6 @@
 package ru.job4j.polymorphism;
 
-public class VehicleMain {
+public class MainVehicle {
 
     public static void main(String[] args) {
         SportCar sportCar = new SportCar();
@@ -11,9 +11,12 @@ public class VehicleMain {
         vehicle.steer();
         vehicle.brake();
         fuel.refill();
+        vehicle.chargeBattery();
         Vehicle townCar = new TownCar();
         townCar.changeGear();
         townCar.refill();
+        townCar.chargeBattery();
+        Vehicle.getDragCoefficient();
     }
 
 }
