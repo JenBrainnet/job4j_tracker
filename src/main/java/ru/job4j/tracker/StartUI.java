@@ -69,7 +69,7 @@ public class StartUI {
         }
     }
 
-    private static void deleteItem(Input input, Tracker tracker) {
+    public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Удаление заявки ===");
         int id = input.askInt("Введите id: ");
         Item item = tracker.findById(id);
