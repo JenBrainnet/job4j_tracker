@@ -66,6 +66,16 @@ public class StreamUsage {
                 .filter(task -> task.spent > 30)
                 .map(task -> task.name + " " + task.spent)
                 .forEach(System.out::println);
+
+        System.out.println(
+                List.of(1, 1, 2, 2).stream().collect(
+                        Collectors.toMap(
+                                element -> element,
+                                element -> element * element,
+                                (existing, replacement) -> existing
+                        )
+                )
+        );
     }
 
 }
