@@ -1,9 +1,13 @@
-package ru.job4j.mapto;
+package ru.job4j.stream;
+
+import ru.job4j.stream.mapto.Person;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
-public class MapToIntMain {
+public class MinExampleMain {
 
     public static void main(String[] args) {
         List<Person> people = Arrays.asList(
@@ -13,12 +17,10 @@ public class MapToIntMain {
                 new Person("Виктор", 16),
                 new Person("Анна", 29)
         );
-        int sum = people.stream()
-                .filter(person -> person.getAge() > 25)
-                .mapToInt(Person::getAge)
-                .peek(System.out::println)
-                .sum();
-        System.out.println("Сумма: " + sum);
+        Optional<Person> youngestPerson = people.stream()
+                .min(Comparator.comparing(Person::getAge));
+        int age = youngestPerson.get().getAge();
+        System.out.println(age);
     }
 
 }

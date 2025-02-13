@@ -1,4 +1,4 @@
-package ru.job4j.mapto;
+package ru.job4j.stream.mapto;
 
 import java.util.List;
 import java.util.stream.Collectors;
