@@ -21,11 +21,11 @@ public class College {
 
     public Optional<Subject> findBySubjectName(String account, String name) {
         return findByAccount(account)
-                .map(student -> students.get(student))
-                .stream()
-                .flatMap(Set::stream)
-                .filter(subject -> subject.name().equals(name))
-                .findFirst();
+                .flatMap(student -> students.get(student)
+                        .stream()
+                        .filter(subject -> subject.name().equals(name))
+                        .findFirst()
+                );
     }
 
 }
