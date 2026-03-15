@@ -19,7 +19,7 @@ class StartUITest {
         Input input = new MockInput(
                 List.of("0", "Item name", "1")
         );
-        Tracker tracker = new Tracker();
+        Store tracker = new MemTracker();
         List<UserAction> actions = List.of(
                 new CreateAction(output),
                 new ExitAction(output)
@@ -30,7 +30,7 @@ class StartUITest {
 
     @Test
     void whenReplaceItem() {
-        Tracker tracker = new Tracker();
+        Store tracker = new MemTracker();
         Item item = tracker.add(new Item("Replaced item"));
         String replacedName = "New item name";
         Output output = new StubOutput();
@@ -47,7 +47,7 @@ class StartUITest {
 
     @Test
     void whenDeleteItem() {
-        Tracker tracker = new Tracker();
+        Store tracker = new MemTracker();
         Item item = tracker.add(new Item("Deleted item"));
         Output output = new StubOutput();
         Input input = new MockInput(
@@ -67,7 +67,7 @@ class StartUITest {
         Input input = new MockInput(
                 List.of("0")
         );
-        Tracker tracker = new Tracker();
+        Store tracker = new MemTracker();
         List<UserAction> actions = List.of(
                 new ExitAction(output)
         );
@@ -82,7 +82,7 @@ class StartUITest {
     @Test
     void whenReplaceItemTestOutputIsSuccessfully() {
         Output output = new StubOutput();
-        Tracker tracker = new Tracker();
+        Store tracker = new MemTracker();
         Item one = tracker.add(new Item("test1"));
         String replaceName = "New Test Name";
         Input input = new MockInput(
@@ -110,7 +110,7 @@ class StartUITest {
     @Test
     void whenFindAllTestOutputIsSuccessfully() {
         Output output = new StubOutput();
-        Tracker tracker = new Tracker();
+        Store tracker = new MemTracker();
         Item one = tracker.add(new Item("Item one"));
         Item two = tracker.add(new Item("Item two"));
         Input input = new MockInput(
@@ -139,7 +139,7 @@ class StartUITest {
     @Test
     void whenFindAllTestOutputIsNotSuccessfully() {
         Output output = new StubOutput();
-        Tracker tracker = new Tracker();
+        Store tracker = new MemTracker();
         Input input = new MockInput(
                 List.of("0", "1")
         );
@@ -165,7 +165,7 @@ class StartUITest {
     @Test
     void whenFindByNameTestOutputIsSuccessfully() {
         Output output = new StubOutput();
-        Tracker tracker = new Tracker();
+        Store tracker = new MemTracker();
         String name = "Item name";
         Item one = tracker.add(new Item(name));
         Item two = tracker.add(new Item(name));
@@ -195,7 +195,7 @@ class StartUITest {
     @Test
     void whenFindByNameTestOutputIsNotSuccessfully() {
         Output output = new StubOutput();
-        Tracker tracker = new Tracker();
+        Store tracker = new MemTracker();
         tracker.add(new Item("Item name"));
         String anotherName = "Another item name";
         Input input = new MockInput(
@@ -223,7 +223,7 @@ class StartUITest {
     @Test
     void whenFindByIdTestOutputIsSuccessfully() {
         Output output = new StubOutput();
-        Tracker tracker = new Tracker();
+        Store tracker = new MemTracker();
         Item item = tracker.add(new Item("Item name"));
         Input input = new MockInput(
                 List.of("0", String.valueOf(item.getId()), "1")
@@ -250,7 +250,7 @@ class StartUITest {
     @Test
     void whenFindByIdTestOutputIsNotSuccessfully() {
         Output output = new StubOutput();
-        Tracker tracker = new Tracker();
+        Store tracker = new MemTracker();
         tracker.add(new Item("Item name"));
         Input input = new MockInput(
                 List.of("0", "1000", "1")
@@ -280,7 +280,7 @@ class StartUITest {
         Input input = new MockInput(
                 List.of("1", "0")
         );
-        Tracker tracker = new Tracker();
+        Store tracker = new MemTracker();
         List<UserAction> actions = List.of(
                 new ExitAction(output)
         );
