@@ -101,4 +101,21 @@ class SqlTrackerTest {
                 .containsAll(items);
     }
 
+    @Test
+    public void whenDeleteOneThenOtherItemsRemain() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item itemOne = new Item("item1");
+        Item itemTwo = new Item("item2");
+        Item itemThree = new Item("item3");
+        tracker.add(itemOne);
+        tracker.add(itemTwo);
+        tracker.add(itemThree);
+        tracker.delete(itemOne.getId());
+        assertThat(tracker.findAll())
+                .hasSize(2)
+                .extracting(Item::getName)
+                .containsExactlyInAnyOrder("item2", "item3");
+
+    }
+
 }
