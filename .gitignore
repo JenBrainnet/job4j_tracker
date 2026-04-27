@@ -27,3 +27,10 @@ hs_err_pid*
 
 target
 out
+
+# Maven Shade plugin
+dependency-reduced-pom.xml
+
+# Local H2 database files
+*.mv.db
+*.trace.db
