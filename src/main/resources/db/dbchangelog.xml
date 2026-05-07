@@ -15,4 +15,5 @@
     <include file="scripts/004_ddl_create_roles_table.sql" relativeToChangelogFile="true"/>
     <include file="scripts/005_ddl_add_table_j_user_notification.sql" relativeToChangelogFile="true"/>
     <include file="scripts/006_ddl_create_participates_table.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/007_ddl_recreate_items_created_column.sql" relativeToChangelogFile="true"/>
 </databaseChangeLog>

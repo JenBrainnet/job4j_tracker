@@ -6,6 +6,8 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class HibernateRun {
@@ -28,6 +30,13 @@ public class HibernateRun {
             List<Item> list = findAll(sf);
             for (Item it : list) {
                 System.out.println(it);
+            }
+            for (Item it : list) {
+                var time = it.getCreated()
+                        .atZone(ZoneId.of("UTC"))
+                        .withZoneSameInstant(ZoneId.of("Asia/Jerusalem"))
+                        .format(DateTimeFormatter.ofPattern("HH:mm yyyy-MM-dd"));
+                System.out.println(time);
             }
         } catch (Exception e) {
             e.printStackTrace();
